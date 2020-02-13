@@ -1,5 +1,15 @@
 # IsraApart
 Search and book apartments all over the country with this easy to use web.
+P.S the data is a dummy data, no real data was used in implementing this application.
+
+# Used technologies and languages:
+JS vanilla
+HTML5
+CSS3
+Node.js
+Postgresql
+Heroku
+
 
 # Testing:
 If you want to run the tests you need to set up a testing database.

@@ -1,7 +1,6 @@
 const { readFile } = require("fs");
 const path = require("path");
 const urlMod = require('url')
-const getData = require("./queries/getData.js");
 const dbConnection = require('./database/db_connection')
 const querystring = require('querystring')
 const pgFormat = require('pg-format')
@@ -59,7 +58,6 @@ const apartmentHandler = (url, response) => {
     let tempDepartDate = buildDate(departToDate)
     //let numberOfRows = db.dbConnection.query('SELECT * FROM reservation INNER JOIN apartment ON reservation.apartment_id = apartment.id WHERE reservation.apartment_id = $1',[])
     let arrOfData =[cityNameInsensitive,tempArrivalDate,tempDepartDate, queries.guestcount]
-    console.log(queries.guestcount);
     let rangeQuery=`SELECT apartment.name, apartment.id, contact_info FROM apartment     
         INNER JOIN reservation ON reservation.apartment_id = apartment.id     
         WHERE apartment.city_id IN (SELECT id FROM city WHERE name = $1) AND 
@@ -77,27 +75,6 @@ const apartmentHandler = (url, response) => {
         SELECT apartment.name, apartment.id, contact_info FROM apartment WHERE id NOT IN (SELECT apartment_id FROM reservation) and 
         apartment.city_id IN (SELECT id FROM city WHERE name = $1) AND
         apartment.capacity >= $4`
-    // `SELECT DISTINCT apartment.name, apartment.id FROM apartment 
-    //  CROSS JOIN reservation
-    //  WHERE apartment.city_id IN (SELECT id FROM city WHERE name = $1) AND (
-    //  NOT ($2 between to_char(arriving_date,\'YYYY-MM-DD\') and to_char(leaving_date,\'YYYY-MM-DD\'))
-    //  AND
-    //  NOT ($3 between to_char(arriving_date,\'YYYY-MM-DD\') and to_char(leaving_date,\'YYYY-MM-DD\'))
-    //  )`
-
-    //  AND ((
-    //     (SELECT to_char(arriving_date,\'YYYY-MM-DD\') FROM reservation) > $2
-    //     AND (SELECT to_char(arriving_date,\'YYYY-MM-DD\') FROM reservation) > $3
-    //     ) OR (
-    //     (SELECT to_char(leaving_date,\'YYYY-MM-DD\') FROM reservation) < $4 
-    //     AND (SELECT to_char(leaving_date,\'YYYY-MM-DD\') FROM reservation) < $5
-    //     ))`
-
-    //  if(rangeQuery.rows == null) {rangeQuery = `SELECT apartment.name, apartment.id FROM apartment INNER JOIN city ON
-    //   city.id = apartment.city_id WHERE city.name = $1`
-    //   arrOfDates = [cityNameInsensitive]
-    //   console.log("AAAAAAAAAAAAAAAA", rangeQuery);
-    //  }
     
     dbConnection.query(rangeQuery,arrOfData, (error, result) => {
     if (error) {

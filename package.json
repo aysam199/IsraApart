@@ -1,0 +1,33 @@
+{
+  "name": "IsraApart",
+  "version": "1.0.0",
+  "description": "Search and book apartments all over the country with this easy to use web.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:db": "NODE_ENV=test node tests/db_tests.js",
+    "start": "node ./src/server.js",
+    "start:watch": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aysam199/IsraApart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aysam199/IsraApart/issues"
+  },
+  "homepage": "https://github.com/aysam199/IsraApart#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "pg": "^7.18.1",
+    "pg-format": "^1.0.4"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2",
+    "tape": "^4.13.0"
+  }
+}

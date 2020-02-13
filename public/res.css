@@ -1,0 +1,61 @@
+
+* {
+    font-family: 'ZCOOL XiaoWei', sans-serif;
+    box-sizing: border-box;
+    font-size: medium;
+}
+
+body {
+    margin: 0;
+    background-attachment: fixed;
+    height: auto;
+}
+
+body::after{
+    content: "";
+    background-image: url(./images/travel.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;
+  }
+
+
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 40vw;    
+    color: white;
+}
+
+h1 {
+    font-size: xx-large;
+    padding: 5vh;
+    border-radius: 10px;
+    background-color: rgba(218, 38, 98, 0.39);
+}
+.backButton{
+    background-color: rgba(190, 28, 55, 0.877);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: large;
+    font-weight: 700;
+    border-radius: 26px;
+    padding: 3vh;
+    margin: 1vw;
+}
+.backButton:hover {
+    background: rgba(255, 0, 0, 0.671) !important;
+    border-radius: 50px;
+    border-color: rgba(95, 20, 20, 0.548) !important;
+    transition: all 0.3 ease 0s;
+}

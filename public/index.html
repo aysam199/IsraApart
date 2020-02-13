@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="public/images/home.ico">
+    <link href="public/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <title>IsraApart</title>
+</head>
+
+<body>
+    <header>
+        <h1>Lets Find Your Next Adventure</h1>
+    </header>
+    <div class="main-container">
+        <h3>Search for apartments in Israel.</h3>
+
+        <div class="wrapper">
+            <form autocomplete="off" class="form" method="get">
+                <input type="text" id="cityInput" list="json-datalist" value="" placeholder="City">
+                <datalist id="json-datalist">
+               
+               </datalist>
+                <input type="date" id="DOAInput" name="DOA" value="" placeholder="Date of arrival">
+                <input type="date" id="DODInput" name="DOD" value="" placeholder="Date of departure">
+                <input type="number" min="1" max="5" id="guestCount" name="guestcount" value="" placeholder="How many guests? (1-5)" style="">
+
+                <button type="submit" name="button">Search for apartments</button>
+            </form>
+        </div>
+        <div class="wrapperApartmentList wrapper">
+            <ul class="apartments-list" id='apartments-list'>
+
+            </ul>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="public/index.js"></script>
+</body>
+
+</html>
